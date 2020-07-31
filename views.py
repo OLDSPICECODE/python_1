@@ -1,6 +1,6 @@
 
 from flask import  render_template, jsonify, request, url_for, redirect, session, g
-import application
+import application as app
 app.secret_key='jajalolXD'
 
 class persona:
