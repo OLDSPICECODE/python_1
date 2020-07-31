@@ -14,12 +14,12 @@
     <header>
         <h1>PROYECT</h1>
     </header>
-    <div class="container">
+    <div class="app">
         {% for i in campos %}
         <div class="list">
             <p>{{ i.titulo }}</p>
             {% for j in i.trabajos %}
-            <div class="list_item" draggable="true">{{ j.titulo }}</div>
+            <div class="list_item" draggable="true">{{ j.tittle }}</div>
             {% endfor %}
         </div>
         {% endfor %}
