@@ -3,8 +3,8 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <link href="../content/login_set.css" rel="stylesheet" />
-    <link href="../static/content/start_set.css" rel="stylesheet" />
+    <link href="../static/content/login_set.css" rel="stylesheet" />
+    <link href="../static/content/nav_bar_Set.css" rel="stylesheet" />
     <title>login</title>
 </head>
 <body>
@@ -21,8 +21,7 @@
         </div>
     </header>
     <div class="login">
-        <br />
-        <form action="" method="POST">
+        <form action="" method="post" >
             <div class="field">
                 <label class="label">Username</label>
                 <div class="control has-icons-left has-icons-right">
@@ -46,12 +45,13 @@
                     <input class="bt btn-default" type="submit" value="login" />
                 </p>
             </div>
-            <a href="#"> "¿Perdiste tu contraseña?"</a><br>
-            <a href="signin.html"> "¿No tienes cuenta?"</a>
+            <a href="#"> "Perdiste tu contraseña?"</a><br>
+            <a href="/signin"> "No tienes cuenta?"</a>
         </form>
         {% if error %}
             <p class="Error"><strong>Error: </strong>{{ error }}</p>
         {% endif %}
     </div>
 </body>
+
 </html>

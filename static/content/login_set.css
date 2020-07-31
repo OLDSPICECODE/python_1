@@ -1,8 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: url(../../imagenes/fondo1.jpg) no-repeat center top;
-    background-size: cover;
+    background-color: #2C77AB;
     font-family: sans-serif;
     height: 100vh;
 }
@@ -12,28 +11,19 @@ body {
 }
 
 .login {
-    width: 30%;
-    height: 70%;
-    background: #000;
+    width: 40%;
+    height: 60%;
+    background: #254B65;
     color: #fff;
-    top: 50%;
+    top: 60%;
     left: 50%;
     position: fixed;
     transform: translate(-50%, -50%);
     box-sizing: border -box;
-    padding: 0% 2%;
+    padding: 5% 3%;
+    padding-top: 2%;
     border-radius: 20px;
 }
-
-    .login .avatar {
-        width: 100px;
-        height: 100px;
-        left: 35%;
-        position: absolute;
-        top: -50px;
-        left: calc(50% -50px);
-    }
-
 
     .login h1 {
         margin: 0;

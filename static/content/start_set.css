@@ -1,96 +1,75 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
 
-
 body {
     margin: 0;
     font-family: 'Work Sans', sans-serif;
     font-weight: 800;
-    width:100%;
-    height:100%;
-    background-color:#444;
+    min-height: 100vh;
+    background-color:#1c1c1c
 }
+
+    body:before {
+        content: "";
+        width: 100%;
+        min-height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: linear-gradient(90deg,#2373DD,#303A64);
+        opacity: 0.5;
+        z-index: -1;
+    }
 
 .container {
     width: 100%;
     margin: 0 auto;
 }
 
-header {
-    background-color: dimgrey;
-}
 
-header::after {
-    content: '';
-    display: table;
-    clear: both;
-}
 
-.logo {
-    float: left;
-    padding: 10px 0;
-    margin-top: 1%;
-    margin-left: 3%;
+    .container .avatar {
+        width: 100px;
+        height: 100px;
+        left: 3%;
+        position: absolute;
+        top: 3%;
+        left: calc(50% -50px);
+        z-index: -1;
+    }
 
-}
-
-nav {
-    float: right;
-    margin-right:2%;
-    margin-top:2%;
-}
-
-nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-
-}
-
-nav li {
-    display: inline-block;
-    margin-left: 70px;
-    padding-top: 1.8%;
-    position: relative;
-}
-
-nav a {
-    color: black;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 120%;
-}
-
-nav a:hover {
-    color: #000;
-}
-
-nav a::before {
-    content: '';
-    display: block;
-    height: 5px;
-    background-color: #444;
+.bienvenidos {
+    width: 900px;
+    height: 300px;
+    background: #000;
+    color: #fff;
+    top: 50%;
+    left: 50%;
     position: absolute;
-    top: 0;
-    width: 0%;
-    transition: all ease-in-out 250ms;
+    transform: translate(-50%, -50%);
+    box-sizing: border -box;
+    padding: 70px 30px;
+    opacity: 0.5;
+    z-index: -1;
+    border-radius: 20px;
 }
 
-nav a:hover::before {
-    width: 100%;
-}
+    .bienvenidos h1 {
+        margin: 0;
+        padding: 0 0 20px;
+        text-align: center;
+        font-size: 22px;
+    }
 
-h1{
-    color:aliceblue;
-    text-align:center;
-    padding-top:1%;
-    padding-bottom:0.1%;
-}
-h2{
-    padding-left:1%;
-    padding-bottom:0.1%;
-}
-p{
-    padding-left:0.5%;
-    padding-right:0.4%;
+    .bienvenidos h2 {
+        margin: 0;
+        padding: 0 0 20px;
+        text-align: center;
+        font-size: 22px;
+    }
 
-}
+
+    .bienvenidos h3 {
+        margin: 0;
+        padding: 0 0 20px;
+        text-align: center;
+        font-size: 22px;
