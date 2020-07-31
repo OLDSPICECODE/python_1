@@ -1,6 +1,6 @@
 
 from flask import  render_template, jsonify, request, url_for, redirect, session, g
-from application import app
+from help import app
 app.secret_key='jajalolXD'
 
 class persona:
@@ -11,8 +11,19 @@ class persona:
     def __repr__(self):
         return f'<User: {self.name}>'
 
+class campo:
+    def __init__(self,tittle,desc):
+        self.titulo = tittle
+        self.trabajos = desc
+
+class tarea:
+    def __init__(self,tittle,desc):
+        self.tittle = tittle
+        self.descripcion = desc
+
 numero = 1
 usuarios = []
+fields = []
 
 @app.route('/')
 def index():
@@ -57,6 +68,44 @@ def home():
         return redirect(url_for('work'))
     return render_template('home.html', user = [x for x in usuarios if x.id == session['user_id']][0])
 
-@app.route('/work')
+@app.route('/work',methods = ['GET','POST'])
 def work():
-    return render_template('work_desk.html')
+    global fields
+    if request.method == 'POST':
+        cosa = request.form['objeto']
+        if cosa == 'CAMPO':
+            creo = request.form['crear']
+            if creo == 'CREATE':
+                name = request.form['tittle']
+                aux = []
+                fields.append(campo(name,aux))
+            elif creo == 'DELETE':
+                name = request.form['tittle']
+                i = 0
+                for x in fields:
+                    if name == x.titulo:
+                        fields.pop(i)
+                    i += 1
+        if cosa == 'TAREA':
+            accion = request.form['crear']
+            if accion == 'CREATE' and len(fields) >= 1:
+                ttl = request.form['tittle']
+                desc = request.form['descripcion']
+                place = request.form['lugar']
+                for x in fields:
+                    if place == x.titulo:
+                        x.trabajos.append(tarea(ttl,desc))
+            elif accion == 'DELETE' and len(fields) >= 1:
+                buscar = request.form['tittle']
+                place = request.form['lugar']
+                i = 0
+                for x in fields:
+                    if place == x.titulo:
+                        j = 0
+                        for y in x.trabajos:
+                            if buscar == y.tittle:
+                                x.trabajos.pop(j)
+                        j+=1
+                    i += 1
+        print(len(fields[0].trabajos))
+    return render_template('work_desk.html', campos = fields,)

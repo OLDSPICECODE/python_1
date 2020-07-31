@@ -6,21 +6,88 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Drag n Drop</title>
     <link rel="stylesheet" href="../static/content/work_set.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="app">
-        <header>
-            <h1>PROYECT</h1>
-        </header>
-        <div class="lists">
-            <div class="list">
-                <p>coding</p>
-                <div class="list_item" draggable="true">code</div>
-                <div class="list_item" draggable="true">design</div>
-                <div class="list_item" draggable="true">bug</div>
+    <header>
+        <h1>PROYECT</h1>
+    </header>
+    <div class="container">
+        {% for i in campos %}
+        <div class="list">
+            <p>{{ i.titulo }}</p>
+            {% for j in i.trabajos %}
+            <div class="list_item" draggable="true">{{ j.titulo }}</div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#campos">campos</button>
+    <div class="modal fade" id="campos" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <form method="post">
+                    <div class="field">
+                        <label class="label">Tittle</label>
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input" type="text" name="objeto" placeholder="TAREA/CAMPO" value="">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Tittle</label>
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input" type="text" name="tittle" placeholder="tittle" value="">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Tittle</label>
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input" type="text" name="descripcion" placeholder="TAREA:descripcion" value="">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Tittle</label>
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input" type="text" name="lugar" placeholder="TAREA:lugar" value="">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Escribe CREATE o DELETE</label>
+                        <p class="control has-icons-left">
+                            <input class="input" type="text" name="crear" placeholder="CREATE/DELETE" value="">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="control">
+                            <input class="bt btn-default" placeholder="create" type="submit" value="do it!" />
+                        </p>
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
-            <div class="list"><p>checking</p></div>
-            <div class="list"><p>aproved</p></div>
         </div>
     </div>
     <script src="../static/scripts/drag_n_drop.js"></script>
